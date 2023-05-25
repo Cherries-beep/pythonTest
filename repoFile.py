@@ -1,17 +1,17 @@
-flag = 0
 
-def f(*args):
+def print_goods(*args):
+    count = 0
+    countNeg = 0
+    flag = 0
+    for i in args:
+        if ((type(i)== str)) and (len(i)>0):
+           count = count + 1
+           print(f"{count}.{i}")
+    for i in args:
+        if ((type(i) != str)) or (len(i) < 0):
+         countNeg = countNeg + 1
+        if countNeg == len(args):
+            print('Нет товаров')
 
-   for i in args:
-       global flag
-       if i > 0:
-           glag = 1
-           print(True)
-           break
-       elif i<0:
-            flag=0
-            print(False)
-            break
-
-a= (-2,-5,-5,-5,5)
-f(*a)
+a = ('watermelon','peach', True, 5)
+print_goods(*a)
